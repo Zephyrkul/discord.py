@@ -391,6 +391,9 @@ class Message:
     def __eq__(self, other):
         return isinstance(other, self.__class__) and self.id == other.id
 
+    def __hash__(self):
+        return hash(self.id)
+
     def _try_patch(self, data, key, transform=None):
         try:
             value = data[key]
